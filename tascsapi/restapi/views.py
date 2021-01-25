@@ -1,3 +1,10 @@
-from django.shortcuts import render
+from rest_framework import viewsets
 
-# Create your views here.
+from tascsapi.restapi.Serializers import TaskSerialiser
+from tascsapi.restapi.models import Tasks
+
+
+class NoteViewSet(viewsets.ModelViewSet):
+
+    queryset = Tasks.objects.all()
+    serializer_class = TaskSerialiser
